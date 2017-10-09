@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Domain.Core.Models.Product>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                <a href="#" class="make-request" data-url="@Url.Action("AddToShoppingCart", new { id = item.Id })" data-id="@item.Id">AddToShoppingCart</a>
+
+            </td>
+        </tr>
+    }
+    
+</table>
+
+<div>
+    @Html.ActionLink("Proceed your order", "Create", "Orders")
+</div>

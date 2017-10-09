@@ -1,0 +1,14 @@
+﻿<div class="jumbotron">
+    <h1>Welcome to Shopping Cart Api</h1>
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            <h2>CustomerType: @ViewBag.CustomerType</h2>
+        }
+        else
+        {
+            <h2>Please register or login first</h2>
+        }
+    }
+    
+</div>
